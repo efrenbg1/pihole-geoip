@@ -1,0 +1,14 @@
+[Unit]
+Description=GeoIP protection for Pi-hole
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+WorkingDirectory=/etc/pihole/geoip/
+ExecStart=/etc/pihole/geoip/pihole-geoip
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
