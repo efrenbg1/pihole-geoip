@@ -1,0 +1,9 @@
+{
+    "publicIP": "54.38.186.41",
+    "dnsmasq": "",
+    "loggerPeriod": 300,
+    "areas": [
+        "ES:28232",
+        "ES:29010"
+    ]
+}
