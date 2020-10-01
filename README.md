@@ -19,7 +19,7 @@ ES:28010  +--------->+         +-------->+         |
 
 Similar to Pi-hole installer, you can easily install it with this command:
 
-##### `curl -sSL https://raw.githubusercontent.com/efrenbg1/pihole-geoip/master/install.sh | bash`
+##### `curl -sSL https://raw.githubusercontent.com/efrenbg1/pihole-geoip/master/install.sh | sh`
 
 ## License
 Copyright © 2020 Efrén Boyarizo <efren@boyarizo.es><br>

@@ -13,8 +13,6 @@ echo "\e[34mExtracting files...\e[0m"
 tar -xzf pihole-geoip.tar.gz
 echo "\e[34mRemoving archive...\e[0m"
 rm pihole-geoip.tar.gz
-echo "\e[34mEdit config.json...\e[0m"
-nano config.json
 echo "\e[34mInstalling systemd service...\e[0m"
 cp pihole-geoip.service /lib/systemd/system/pihole-geoip.service
 systemctl daemon-reload
