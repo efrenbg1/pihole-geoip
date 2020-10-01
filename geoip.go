@@ -22,6 +22,9 @@ func geoipStart() {
 
 func geoipCheck(ip string) bool {
 	gps := geo.GetRecord(ip)
+	if gps == nil {
+		return areas["nil"]
+	}
 	code := gps.CountryCode + ":" + gps.PostalCode
 	return areas[code]
 }

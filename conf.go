@@ -8,7 +8,8 @@ import (
 )
 
 type confStruct struct {
-	PublicIP     string   `json:"publicIP"`
+	Listen       string   `json:"listen"`
+	Target       string   `json:"target"`
 	Dnsmasq      string   `json:"dnsmasq"`
 	LoggerPeriod int      `json:"loggerPeriod"`
 	Areas        []string `json:"areas"`

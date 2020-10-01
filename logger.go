@@ -60,10 +60,12 @@ func loggerStats() {
 	for {
 		loggerSync()
 		podium := 1
-		fmt.Println("---------------- TOP BLOCKED ----------------")
 		row, _ := db.Query("SELECT * FROM blocked ORDER BY queries DESC LIMIT 5")
 		defer row.Close()
 		for row.Next() { // Iterate and fetch the records from result cursor
+			if podium == 1 {
+				fmt.Println("---------------- TOP BLOCKED ----------------")
+			}
 			var ip string
 			var queries int
 			row.Scan(&ip, &queries)

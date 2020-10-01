@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"net"
 	"strings"
@@ -13,7 +14,7 @@ func main() {
 	geoipStart()
 	setupPihole()
 
-	listen, err := net.ListenPacket("udp", conf.PublicIP+":53")
+	listen, err := net.ListenPacket("udp", conf.Listen)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -22,7 +23,7 @@ func main() {
 	defer loggerEnd()
 	loggerStart()
 
-	log.Println("Listening on", listen.LocalAddr().String())
+	fmt.Println("Listening on", listen.LocalAddr().String(), "--->", conf.Target)
 
 	for {
 		buff := make([]byte, 1220)
@@ -42,7 +43,7 @@ func main() {
 
 func forward(listen net.PacketConn, addr net.Addr, tx []byte) {
 	defer recover()
-	dns, err := net.Dial("udp", "127.0.0.1:53")
+	dns, err := net.Dial("udp", conf.Target)
 	dns.SetDeadline(time.Now().Add(time.Duration(2) * time.Second))
 	dns.Write(tx)
 
