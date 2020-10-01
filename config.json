@@ -1,7 +1,7 @@
 {
-    "listen": "192.168.0.4:53",
-    "target": "192.168.0.10:53",
-    "dnsmasq": "",
+    "listen": "192.168.1.10.4:53",
+    "target": "127.0.0.1:53",
+    "dnsmasq": "/etc/dnsmasq.d/01-pihole.conf",
     "loggerPeriod": 300,
     "areas": [
         "ES:28232",
